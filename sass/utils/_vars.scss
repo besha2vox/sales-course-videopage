@@ -1,0 +1,50 @@
+$white: #fcfcfd;
+$primary: #171921;
+$primaryBlack: #111520;
+$primaryYellow: #ddb06d;
+$secondaryYellow: #6b5941;
+$primaryBrown: #b9917a;
+$secondaryBrown: #745343;
+$silver: #f2f1ef;
+$grey: #aeaca9;
+$yellowGradient: linear-gradient(
+    180deg,
+    $primaryBlack -200%,
+    $primaryYellow 100%
+);
+$copperGradient: linear-gradient(
+    180deg,
+    $primaryBlack -150%,
+    $primaryBrown 100%
+);
+$silverGradient: linear-gradient(180deg, $primary -150%, $silver 100%);
+$brownGradient: linear-gradient(106.39deg, #b78f78 -1.2%, #765545 100%);
+$backgroundGradient: linear-gradient(
+    286.5deg,
+    rgba(255, 255, 255, 0.045) -20%,
+    rgba(217, 217, 217, 0) 100%
+);
+
+$goldPointerGradient: linear-gradient(90deg, #191a22 0%, #daae6c 100%);
+$goldHeaderGradient: linear-gradient(
+    270deg,
+    #111520 0%,
+    #ddb06d 53.65%,
+    #111520 100%
+);
+@mixin text-gradient {
+    background: linear-gradient(
+        180deg,
+        $primaryBlack -200%,
+        $primaryYellow 100%
+    );
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+@mixin text-gradient--silver {
+    background: linear-gradient(180deg, $primary -150%, $silver 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}

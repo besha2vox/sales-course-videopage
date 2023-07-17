@@ -1,0 +1,319 @@
+.course-header {
+    position: relative;
+    padding: 24px 0;
+
+    &__container {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0 auto;
+        padding: 0 15px;
+
+        width: 100%;
+
+        @media screen and (min-width: 1240px) {
+            gap: 32px;
+            padding: 0 15px;
+            max-width: 1240px;
+        }
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+
+        width: 100%;
+        height: 1px;
+
+        background-image: $goldHeaderGradient;
+    }
+}
+
+.course-header__label {
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+    gap: 15px;
+
+    cursor: pointer;
+    & svg {
+        fill: #929191;
+    }
+
+    & input {
+        padding: 4px;
+        height: fit-content;
+
+        font-size: 16px;
+        font-family: 'SFProDisplay-Regular';
+        line-height: 1.25;
+
+        color: $silver;
+        background-color: transparent;
+        border: none;
+    }
+
+    & input::placeholder {
+        color: #929191;
+    }
+
+    @media screen and (max-width: 1239px) {
+        display: none;
+    }
+}
+
+.course-header__btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 32px;
+
+    height: fit-content;
+
+    font-family: 'SFProDisplay-Semibold';
+    text-align: center;
+    font-size: 18px;
+    line-height: 1;
+    text-transform: uppercase;
+
+    color: #f2f2f2;
+    background-color: $primary;
+    border-radius: 100px;
+
+    @media screen and (min-width: 1240px) {
+        padding: 16px 32px;
+        gap: 12px;
+    }
+
+    &::before {
+        content: '';
+        z-index: -10;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+
+        border-radius: 100px;
+        background-image: linear-gradient(
+            to right,
+            #111520 -25%,
+            #b28d76 50%,
+            #111520 125%
+        );
+    }
+
+    &::after {
+        content: '';
+        z-index: -9;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+
+        border-radius: 100px;
+        background-image: linear-gradient(
+            to right,
+            #b28d76 -25%,
+            #b28d76 50%,
+            #b28d76 125%
+        );
+        opacity: 0;
+        transition: opacity 300ms linear;
+    }
+
+    &:hover::after {
+        opacity: 1;
+    }
+
+    & span {
+        @media screen and (max-width: 1239px) {
+            display: none;
+        }
+    }
+}
+
+.course-header__user-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    text-align: end;
+
+    @media screen and (min-width: 768px) {
+        gap: 16px;
+    }
+}
+
+.course-header__user-info-wrapper {
+    display: inherit;
+    flex-direction: column;
+    gap: 4px;
+
+    font-size: 16px;
+    line-height: 1.125;
+
+    @media screen and (min-width: 768px) {
+        gap: 8px;
+    }
+}
+
+.course-header__user-name {
+    color: $white;
+    font-family: 'SFProDisplay-Semibold';
+}
+
+.course-header__user-email {
+    color: #929191;
+    font-family: 'SFProDisplay-Regular';
+    font-size: 13px;
+
+    @media screen and (min-width: 768px) {
+        font-size: 14px;
+    }
+}
+
+.course-header__dropdown-btn {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+
+    & img {
+        @media screen and (max-width: 767px) {
+            max-width: 44px;
+            max-height: 44px;
+        }
+    }
+
+    & svg {
+        transform: rotateX(0deg);
+        transition: transform 300ms ease-in-out;
+    }
+
+    @media (hover: hover) {
+        &:hover svg {
+            transform: rotateX(180deg);
+        }
+    }
+
+    &.open svg {
+        transform: rotateX(180deg);
+    }
+}
+
+.dropdown {
+    position: absolute;
+    z-index: 9;
+    top: 70%;
+    right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transform: rotateX(90deg);
+
+    transition-property: transform;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
+
+    @media screen and (min-width: 1240px) {
+        right: 0;
+        transform: translateX(calc(50% - 25px)) rotateX(90deg);
+    }
+
+    @media (hover: hover) {
+        .course-header__dropdown-btn:hover + &,
+        &:hover {
+            transform: rotateX(0);
+
+            @media screen and (min-width: 1240px) {
+                transform: translateX(calc(50% - 25px)) rotateX(0);
+            }
+        }
+    }
+
+    .course-header__dropdown-btn.open + & {
+        transform: rotateX(0);
+
+        @media screen and (min-width: 1240px) {
+            transform: translateX(calc(50% - 25px)) rotateX(0);
+        }
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        width: calc(100% + 2px);
+        height: calc(100% + 2px);
+
+        background-color: #f2f2f2;
+        border-radius: 8px;
+        background-image: linear-gradient(
+            to right,
+            $primaryYellow,
+            $secondaryYellow
+        );
+    }
+}
+
+.dropdown-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    border-radius: 8px;
+    background-color: $primary;
+    background-image: linear-gradient(
+        136deg,
+        rgba(23, 25, 33, 0.7) 0%,
+        rgba(45, 49, 62, 0.7) 100%
+    );
+    backdrop-filter: blur(17px);
+
+    & li {
+        position: relative;
+    }
+
+    & li:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+
+        width: 100%;
+        height: 1px;
+
+        background-image: linear-gradient(
+            270deg,
+            #ddb06d00 5%,
+            #ddb06d 53.65%,
+            #ddb06d00 95%
+        );
+    }
+}
+
+.dropdown-link {
+    display: block;
+    padding: 16px 44px;
+
+    font-family: 'SFProDisplay-Regular';
+    font-size: 14px;
+    line-height: 1.125;
+    color: #f2f2f2;
+}

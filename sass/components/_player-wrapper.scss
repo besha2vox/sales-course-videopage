@@ -1,0 +1,415 @@
+.VideoWrapper_container {
+    margin: 0 auto;
+    padding: 0 15px;
+    width: 100%;
+
+    @media screen and (min-width: 1240px) {
+        max-width: 1240px;
+    }
+
+    &--left {
+        display: flex;
+        padding-left: 0;
+    }
+}
+
+.VIdeoWrapper-desktop {
+    @media screen and (max-width: 1239px) {
+        display: none;
+    }
+}
+
+.VIdeoWrapper-mobile {
+    @media screen and (min-width: 1240px) {
+        display: none;
+    }
+}
+
+.Video_player {
+    width: 100%;
+    height: fit-content;
+    min-height: 210px;
+    @media screen and (min-width: 1240px) {
+        max-width: 920px;
+        min-height: 520px;
+    }
+}
+
+.player-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: start;
+    width: 100%;
+
+    @media screen and (min-width: 1240px) {
+        min-width: 920px;
+    }
+}
+
+.VideoWrapper_wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 100%;
+
+    background: linear-gradient(180deg, rgba(23, 25, 33, 0) 0%, #171921 100%);
+
+    @media screen and (min-width: 1240px) {
+        justify-content: end;
+        align-items: start;
+        margin-right: 0;
+        padding: 64px 100px;
+    }
+}
+
+.player__button-wrapper {
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.player__button {
+    position: relative;
+    padding: 20px 32px;
+    max-width: fit-content;
+    gap: 10px;
+
+    font-family: 'SFProDisplay-Semibold';
+    font-size: 14px;
+    line-height: 1.142;
+    white-space: nowrap;
+
+    color: $primary;
+    border-radius: 100px;
+    background-color: transparent;
+
+    transition: box-shadow 300ms ease-in-out;
+
+    & span {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    & svg {
+        fill: currentColor;
+    }
+
+    @media screen and (min-width: 1240px) {
+        font-size: 18px;
+    }
+
+    &::before {
+        content: '';
+        z-index: 1;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+
+        background: linear-gradient(
+            270deg,
+            $primaryBlack -50%,
+            $primaryYellow 53.65%,
+            $primaryBlack 150%
+        );
+        border-radius: 100px;
+        transition: opacity 300ms ease-in-out;
+    }
+
+    &:hover {
+        box-shadow: 0px 0px 20px 0px rgba(215, 172, 106, 0.2);
+    }
+
+    &:hover::before {
+        opacity: 0;
+    }
+
+    &::after {
+        content: '';
+        z-index: 0;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 100%;
+        background-color: $primaryYellow;
+        border-radius: 100px;
+    }
+}
+
+.VideoRectangle_wrapper {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 6px;
+}
+
+.VideoRectangle_custom-range-track {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.14);
+    cursor: pointer;
+}
+
+.VideoRectangle_custom-range-progress {
+    height: 100%;
+    background-image: linear-gradient(
+        270deg,
+        $primaryBlack -50%,
+        $primaryYellow 53.65%,
+        $primaryBlack 150%
+    );
+}
+
+.VideoRectangle_input {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    opacity: 0;
+
+    cursor: pointer;
+}
+.CurrentVideoInfo_wrapper {
+    display: flex;
+    flex-direction: column;
+    padding-top: 24px;
+    gap: 8px;
+
+    text-align: start;
+
+    @media screen and (min-width: 1240px) {
+        gap: 0;
+        margin-bottom: 24px;
+        max-width: 595px;
+    }
+}
+.CurrentVideoInfo_lesson {
+    position: relative;
+    z-index: 2;
+
+    width: fit-content;
+
+    font-family: 'SFProDisplay-Medium';
+    font-size: 14px;
+    line-height: 1.1;
+
+    background-color: #000000;
+    border-radius: 4px;
+
+    &::before {
+        content: '';
+        z-index: -10;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        width: calc(100% + 3px);
+        height: calc(100% + 3px);
+
+        border-radius: 4px;
+        background-image: linear-gradient(
+            to right,
+            #111520 -50%,
+            #ddb06d 50%,
+            #111520 150%
+        );
+    }
+}
+.CurrentVideoInfo_lesson-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+
+    background-color: $primary;
+    border-radius: 4px;
+}
+
+.CurrentVideoInfo_text {
+    background: linear-gradient(#ddb06d 70%, #111520);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.CurrentVideoInfo_title {
+    font-family: 'SFProDisplay-Medium';
+    font-size: 20px;
+    line-height: 1;
+    color: #f2f2f2;
+
+    @media screen and (min-width: 1240px) {
+        margin-top: 10px;
+
+        font-size: 36px;
+        font-family: 'SFProDisplay-Bold';
+        line-height: 1.667;
+        letter-spacing: -0.72px;
+        text-transform: uppercase;
+    }
+}
+
+.CurrentVideoInfo_description {
+    font-family: 'SFProDisplay-Regular';
+    font-size: 14px;
+    line-height: 1.4;
+    color: #aeaca9;
+
+    @media screen and (min-width: 1240px) {
+        font-size: 18px;
+        line-height: 1.444;
+    }
+}
+
+.VideoAnaliticsList_list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    padding: 36px 0;
+    row-gap: 20px;
+    column-gap: 12px;
+    max-width: 480px;
+
+    @media screen and (min-width: 1200px) {
+        padding: 64px 0 0 0;
+        max-width: 100%;
+    }
+}
+
+.VideoAnaliticsList_item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 6px 0;
+
+    text-align: start;
+
+    @media screen and (max-width: 1239px) {
+        &:nth-child(-n + 2) {
+            width: calc((100% - 12px) / 2);
+        }
+
+        &:nth-child(n + 3) {
+            width: calc((100% - 12px * 2) / 3);
+        }
+    }
+
+    @media screen and (min-width: 1200px) {
+        padding: 20px 32px 32px;
+        gap: 20px;
+
+        &:first-child {
+            padding-left: 0;
+        }
+
+        &:not(:last-child) {
+            border-right: 1px solid rgba(240, 243, 246, 0.1);
+        }
+    }
+}
+
+.VideoAnaliticsItem_title {
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    gap: 8px;
+
+    font-size: 12px;
+    font-family: 'SFProDisplay-Regular';
+    line-height: 1.67;
+
+    color: #929191;
+
+    & .text {
+        hyphens: auto;
+    }
+
+    @media screen and (max-width: 1239px) {
+        text-transform: uppercase;
+    }
+}
+.VideoAnaliticsItem_icon-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+    border-radius: 6px;
+    background: var(
+        --linear,
+        linear-gradient(180deg, #111520 -50%, #ddb06d 100%)
+    );
+}
+.VideoAnaliticsItem_analitics {
+    position: relative;
+    font-family: 'SFProDisplay-Medium';
+    font-size: 14px;
+
+    color: #929191;
+
+    &::after {
+        content: '';
+
+        position: absolute;
+        bottom: -15px;
+        left: 0;
+
+        width: 100%;
+        height: 3px;
+
+        background-color: #373940;
+        border-radius: 3px;
+    }
+}
+.VideoAnaliticsItem_viewed {
+    font-family: 'SFProDisplay-Bold';
+    font-size: 20px;
+    line-height: 1.8px;
+    letter-spacing: 0.4px;
+
+    background: linear-gradient(180deg, $primary -150%, $silver 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    @media screen and (min-width: 1240px) {
+        font-size: 36px;
+    }
+}
+.VideoAnaliticsItem_calculation {
+    position: absolute;
+    z-index: 2;
+    bottom: -15px;
+    left: 0;
+
+    height: 3px;
+
+    background-image: linear-gradient(
+        270deg,
+        #111520 -50%,
+        #ddb06d 53.65%,
+        #111520 150%
+    );
+    border-radius: 3px;
+}
