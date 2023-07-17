@@ -88,7 +88,7 @@
         transition: opacity 300ms linear;
     }
 
-    .button:hover &::before {
+    .VideoPlayItem_button:hover &::before {
         opacity: 1;
     }
 }

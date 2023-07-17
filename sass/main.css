@@ -852,7 +852,7 @@ button {
   opacity: 0;
   transition: opacity 300ms linear;
 }
-.button:hover .VideoPlayItem_preview-wrapper::before {
+.VideoPlayItem_button:hover .VideoPlayItem_preview-wrapper::before {
   opacity: 1;
 }
 
