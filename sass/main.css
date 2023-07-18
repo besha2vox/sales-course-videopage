@@ -955,6 +955,8 @@ button {
 }
 
 .VideoPlayItem_lesson {
+  display: flex;
+  gap: 6px;
   color: transparent;
   background: linear-gradient(#ddb06d 70%, #111520);
   background-clip: text;
